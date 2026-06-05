@@ -7,3 +7,10 @@ Personal portfolio website built with React, Vite, and Tailwind CSS.
 ```bash
 npm install
 npm run dev
+```
+
+## Build
+
+```bash
+npm run build
+```
