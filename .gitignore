@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.vercel/
+*.tsbuildinfo
+*.log
+archives/
+hero-check*.png
+hero-*-check.png

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://serhii-portfolio-card.vercel.app/sitemap.xml
