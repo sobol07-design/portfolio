@@ -1,6 +1,6 @@
 import projectOneImage from "./assets/project-1.jpg";
 import projectTwoImage from "./assets/project-2.jpg";
-import projectThreeImage from "./assets/project-3.jpg";
+import projectThreeImage from "./assets/project-3-vinestate.png";
 
 export const projects = [
   {
@@ -26,15 +26,16 @@ export const projects = [
     imageClassName: "opacity-80",
   },
   {
-    title: "Онлайн-вітрина «Торти Оксана»",
-    audience: "Для локального кондитерського бізнесу",
-    result: "Показує асортимент, спрощує перший контакт і підтримує локальний пошук у Вінниці.",
-    tech: "No-Code • Weblium • Local SEO",
+    title: "Каталог нерухомості «Власна Нерухомість»",
+    audience: "Для агенції нерухомості у Вінниці",
+    result:
+      "Допомагає клієнтам швидко відфільтрувати об'єкти за типом угоди, нерухомості, районом і ціною та перейти до консультації.",
+    tech: "React • Vite • Tailwind CSS • Адаптивний каталог",
     description:
-      "Налаштовано комерційну вітрину з фокусом на зручність замовлення, адаптивність і базову пошукову оптимізацію.",
-    link: "https://vnoksana.com.ua",
+      "Створено преміальний сайт із каталогом квартир, будинків, земельних ділянок і комерційних об'єктів, фільтрами підбору та прямими CTA для зв'язку з агенцією.",
+    link: "https://vinestate-catalog.vercel.app/#catalog",
     image: projectThreeImage,
-    imageClassName: "opacity-80",
+    imageClassName: "opacity-95",
   },
 ];
 
