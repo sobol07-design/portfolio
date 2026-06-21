@@ -1,6 +1,6 @@
 import projectOneImage from "./assets/project-1.jpg";
 import projectTwoImage from "./assets/project-2.jpg";
-import projectThreeImage from "./assets/project-3-vinestate.png";
+import projectThreeImage from "./assets/project-3-nataliya-bila.webp";
 
 export const projects = [
   {
@@ -26,16 +26,16 @@ export const projects = [
     imageClassName: "opacity-80",
   },
   {
-    title: "Каталог нерухомості «Власна Нерухомість»",
-    audience: "Для агенції нерухомості у Вінниці",
+    title: "Агентство нерухомості Наталії Білої",
+    audience: "Для преміального агентства нерухомості у Вінниці",
     result:
-      "Допомагає клієнтам швидко відфільтрувати об'єкти за типом угоди, нерухомості, районом і ціною та перейти до консультації.",
-    tech: "React • Vite • Tailwind CSS • Адаптивний каталог",
+      "Об'єднує імідж експертки, каталог із розширеними фільтрами та заявки на консультацію в єдиному клієнтському шляху.",
+    tech: "React • Каталог нерухомості • Розширені фільтри • Lead generation",
     description:
-      "Створено преміальний сайт із каталогом квартир, будинків, земельних ділянок і комерційних об'єктів, фільтрами підбору та прямими CTA для зв'язку з агенцією.",
-    link: "https://vinestate-catalog.vercel.app/#catalog",
+      "Створено преміальний сайт агентства з об'єктами для купівлі й оренди, персональним брендом, послугами, відгуками та формами звернення.",
+    link: "https://nataliyabila.com.ua",
     image: projectThreeImage,
-    imageClassName: "opacity-95",
+    imageClassName: "opacity-90 saturate-110",
   },
 ];
 
