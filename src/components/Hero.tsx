@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import { fadeInUp } from "../animations";
+import portraitImage from "../assets/serhii-portrait.png";
 import { Button } from "./ui/button";
 
 const ctaGlow =
@@ -91,23 +92,27 @@ export function Hero({ onContactClick }: { onContactClick: () => void }) {
           scale: { duration: 0.8, delay: 0.15, ease: "easeOut" },
           y: { duration: 7, repeat: Infinity, ease: "easeInOut" },
         }}
-        className="relative z-10 rounded-[2rem] border border-zinc-800 bg-zinc-900/50 p-5 shadow-glow backdrop-blur-2xl"
+        className="relative z-10 mx-auto w-full max-w-[29rem]"
       >
-        <div className="rounded-[1.5rem] border border-zinc-800/80 bg-zinc-950/70 p-6">
-          <div className="flex items-center justify-between">
-            <span className="text-sm text-zinc-500">Доступність</span>
-            <span className="rounded-full bg-emerald-400/10 px-3 py-1 text-xs font-medium text-emerald-300">
-              Відкритий до проєктів
-            </span>
-          </div>
-          <div className="mt-10 space-y-5">
-            <p className="text-3xl font-semibold text-zinc-100">
-              Лендинги, SPA та бізнес-сайти
-            </p>
-            <p className="leading-7 text-zinc-400">
-              Продумана структура, адаптивна верстка, охайні анімації та дизайн,
-              який працює на перше враження.
-            </p>
+        <div className="pointer-events-none absolute inset-8 rounded-[2rem] bg-violet-500/25 blur-[4.5rem]" />
+        <div className="relative overflow-hidden rounded-[2rem] border border-fuchsia-300/25 bg-zinc-950/55 p-1.5 shadow-[0_0_42px_rgba(139,92,246,0.22),0_30px_80px_rgba(0,0,0,0.38)] backdrop-blur-2xl">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[1.65rem] bg-zinc-950 sm:aspect-[3/4] md:aspect-[4/5]">
+            <img
+              src={portraitImage}
+              alt="Сергій Соболєв, UX/UI дизайнер та веброзробник"
+              className="h-full w-full object-cover object-[52%_38%] saturate-[0.92] contrast-[1.04]"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(9,9,11,0.82),transparent_34%),linear-gradient(135deg,rgba(139,92,246,0.12),transparent_42%)]" />
+            <div className="absolute inset-x-4 bottom-4 flex items-center justify-between gap-3 rounded-2xl border border-white/15 bg-zinc-950/58 px-4 py-3 backdrop-blur-xl">
+              <div>
+                <p className="text-sm font-semibold text-white">Сергій Соболєв</p>
+                <p className="mt-0.5 text-xs text-zinc-300">UX/UI та веброзробка</p>
+              </div>
+              <span className="inline-flex items-center gap-2 whitespace-nowrap text-xs font-medium text-emerald-300">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.9)]" />
+                Відкритий до проєктів
+              </span>
+            </div>
           </div>
         </div>
       </motion.div>
