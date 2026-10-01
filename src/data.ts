@@ -1,6 +1,7 @@
 import projectOneImage from "./assets/project-1.jpg";
 import projectTwoImage from "./assets/project-2.jpg";
 import projectThreeImage from "./assets/project-3-nataliya-bila.webp";
+import projectFourImage from "./assets/project-4-herasymyshyna.webp";
 
 export const projects = [
   {
@@ -36,6 +37,18 @@ export const projects = [
     link: "https://nataliyabila.com.ua",
     image: projectThreeImage,
     imageClassName: "opacity-90 saturate-110",
+  },
+  {
+    title: "Сайт адвоката Тетяни Герасимишиної",
+    audience: "Для адвокатської практики у Вінниці",
+    result:
+      "Пояснює юридичні послуги, формує довіру до адвоката й допомагає звернутися по консультацію.",
+    tech: "Адаптивний вебдизайн • SEO • Telegram-запис",
+    description:
+      "Створено сайт із напрямами юридичної допомоги, прозорою вартістю послуг, відповідями на часті запитання та експертними матеріалами.",
+    link: "https://www.advokat-herasymyshyna.com.ua",
+    image: projectFourImage,
+    imageClassName: "opacity-95 saturate-110",
   },
 ];
 
