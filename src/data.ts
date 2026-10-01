@@ -2,6 +2,8 @@ import projectOneImage from "./assets/project-1.jpg";
 import projectTwoImage from "./assets/project-2.jpg";
 import projectThreeImage from "./assets/project-3-nataliya-bila.webp";
 import projectFourImage from "./assets/project-4-herasymyshyna.webp";
+import projectFiveImage from "./assets/project-5-vinestate.jpg";
+import projectSixImage from "./assets/project-6-oksana.webp";
 
 export const projects = [
   {
@@ -48,6 +50,30 @@ export const projects = [
       "Створено сайт із напрямами юридичної допомоги, прозорою вартістю послуг, відповідями на часті запитання та експертними матеріалами.",
     link: "https://www.advokat-herasymyshyna.com.ua",
     image: projectFourImage,
+    imageClassName: "object-top opacity-95 saturate-110",
+  },
+  {
+    title: "Каталог нерухомості «Власна Нерухомість»",
+    audience: "Для агенції нерухомості у Вінниці",
+    result:
+      "Збирає об'єкти в зручному каталозі та допомагає покупцям і орендарям швидше знайти потрібне й звернутися до агенції.",
+    tech: "Каталог нерухомості • Фільтри • Локальне SEO",
+    description:
+      "Створено каталог із фільтрами за типом угоди, нерухомості, районом і ціною, картками об'єктів та прямим зв'язком з агенцією.",
+    link: "https://vinestate-catalog.vercel.app/",
+    image: projectFiveImage,
+    imageClassName: "opacity-90 saturate-110",
+  },
+  {
+    title: "Сайт домашньої кондитерської Оксани Малихіної",
+    audience: "Для кондитерської з тортами й десертами на замовлення у Вінниці",
+    result:
+      "Допомагає показати асортимент і відгуки, щоб клієнтам було легко обрати десерт і залишити замовлення.",
+    tech: "Weblium • Каталог десертів • Форми замовлення • Local SEO",
+    description:
+      "Оформлено сторінки тортів, десертів, шоколаду й подарункових наборів, додано відгуки, контакти та форму замовлення.",
+    link: "https://vnoksana.com.ua/",
+    image: projectSixImage,
     imageClassName: "opacity-95 saturate-110",
   },
 ];

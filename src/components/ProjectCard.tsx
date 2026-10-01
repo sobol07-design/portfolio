@@ -5,7 +5,7 @@ type Project = (typeof projects)[number];
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="group overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/80 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-zinc-700 hover:shadow-glow">
+    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/80 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-zinc-700 hover:shadow-glow">
       <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-zinc-800 via-zinc-900 to-indigo-950">
         <img
           src={project.image}
@@ -14,7 +14,7 @@ export function ProjectCard({ project }: { project: Project }) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/55 to-transparent" />
       </div>
-      <div className="flex min-h-[25rem] flex-col p-5">
+      <div className="flex min-h-[25rem] flex-1 flex-col p-5">
         <p className="text-sm font-medium leading-6 text-indigo-300">{project.tech}</p>
         <h3 className="mt-3 text-xl font-semibold leading-7 text-zinc-100">
           {project.title}
