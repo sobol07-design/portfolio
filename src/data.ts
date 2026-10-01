@@ -3,7 +3,7 @@ import projectTwoImage from "./assets/project-2.jpg";
 import projectThreeImage from "./assets/project-3-nataliya-bila.webp";
 import projectFourImage from "./assets/project-4-herasymyshyna.webp";
 import projectFiveImage from "./assets/project-5-vinestate.jpg";
-import projectSixImage from "./assets/project-6-oksana.webp";
+import projectSixImage from "./assets/project-6-oksana-cake.webp";
 
 export const projects = [
   {
