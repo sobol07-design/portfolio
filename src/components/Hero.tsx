@@ -56,15 +56,16 @@ export function Hero({ onContactClick }: { onContactClick: () => void }) {
           </motion.span>
           Преміальний вебдизайн для бізнесу
         </motion.div>
-        <h1 className="bg-gradient-to-br from-white via-zinc-200 to-indigo-300 bg-clip-text text-5xl font-bold leading-tight text-transparent sm:text-6xl lg:text-7xl">
-          Сергій Соболєв
-        </h1>
-        <p className="mt-5 text-xl font-medium text-zinc-200 sm:text-2xl">
-          UX/UI дизайнер та веброзробник
+        <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-zinc-400">
+          UX/UI дизайнер <span className="text-emerald-300">і</span> веброзробник
         </p>
-        <p className="mt-6 max-w-2xl text-base leading-8 text-zinc-400 sm:text-lg">
-          Створюю сучасні, швидкі вебсайти та SPA-додатки з акцентом на чистий дизайн,
-          високу швидкість завантаження та конверсію для бізнесу.
+        <h1 className="max-w-4xl text-4xl font-semibold leading-[1.08] tracking-[-0.045em] text-white sm:text-6xl lg:text-7xl">
+          Створюю сайти для <span className="bg-gradient-to-r from-emerald-300 via-cyan-200 to-indigo-300 bg-clip-text text-transparent">розвитку</span> бізнесу
+        </h1>
+        <p className="mt-6 max-w-2xl text-base leading-7 text-zinc-300 sm:text-lg sm:leading-8">
+          Я Сергій Соболєв. Проєктую та розробляю адаптивні вебсайти й цифрові
+          продукти — з продуманою структурою, виразним дизайном і зрозумілим шляхом
+          до звернення.
         </p>
         <div className="mt-9 flex flex-col gap-3 sm:flex-row">
           <Button
@@ -79,7 +80,7 @@ export function Hero({ onContactClick }: { onContactClick: () => void }) {
             href="#portfolio"
             className={`inline-flex min-h-12 items-center justify-center rounded-full border px-6 py-3 text-base font-medium transition-all duration-300 motion-safe:animate-[pulse_4s_ease-in-out_infinite] ${ctaGlow}`}
           >
-            Дивитися проєкти
+            Переглянути роботи
           </a>
         </div>
       </motion.div>

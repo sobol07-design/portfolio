@@ -14,11 +14,11 @@ export function Contacts() {
               Контакти
             </p>
             <h2 className="mt-3 text-3xl font-semibold text-zinc-100">
-              Обговоримо ваш сайт або SPA
+              Є ідея для сайту?
             </h2>
             <p className="mt-4 max-w-2xl leading-7 text-zinc-400">
-              Напишіть у зручний канал, і я відповім з фокусом на задачу, бюджет,
-              терміни та найкращий формат реалізації.
+              Розкажіть, що потрібно вашому бізнесу. Обговоримо цілі, бюджет,
+              терміни й відповідний формат реалізації.
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row md:flex-col">

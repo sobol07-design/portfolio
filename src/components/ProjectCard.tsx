@@ -15,14 +15,14 @@ export function ProjectCard({ project }: { project: Project }) {
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/55 to-transparent" />
       </div>
       <div className="flex min-h-[25rem] flex-1 flex-col p-5">
-        <p className="text-sm font-medium leading-6 text-indigo-300">{project.tech}</p>
+        <p className="text-xs font-medium uppercase leading-5 tracking-[0.08em] text-indigo-300">{project.tech}</p>
         <h3 className="mt-3 text-xl font-semibold leading-7 text-zinc-100">
           {project.title}
         </h3>
-        <p className="mt-3 text-sm font-medium text-emerald-300">{project.audience}</p>
-        <p className="mt-3 leading-7 text-zinc-400">{project.description}</p>
+        <p className="mt-3 text-sm font-medium leading-6 text-emerald-300">{project.audience}</p>
+        <p className="mt-3 text-sm leading-6 text-zinc-400">{project.description}</p>
         <p className="mt-4 flex-1 rounded-xl border border-zinc-800 bg-zinc-950/55 p-4 text-sm leading-6 text-zinc-300">
-          <span className="font-semibold text-zinc-100">Користь для бізнесу: </span>
+          <span className="font-semibold text-zinc-100">Результат </span>
           {project.result}
         </p>
         <a

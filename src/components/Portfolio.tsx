@@ -25,7 +25,7 @@ export function Portfolio() {
               Портфоліо
             </p>
             <h2 className="mt-3 text-2xl font-semibold leading-tight text-zinc-100 sm:text-3xl sm:leading-normal">
-              Вибрані проєкти з фокусом на результат
+              Вебсайти для різних бізнес-задач
             </h2>
           </div>
           <div className="flex w-full items-center justify-between sm:w-auto sm:justify-end sm:gap-4">

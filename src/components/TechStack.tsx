@@ -11,7 +11,7 @@ export function TechStack() {
               Технології
             </p>
             <h2 className="mt-3 text-3xl font-semibold text-zinc-100">
-              Інструменти для швидких, охайних інтерфейсів
+              Дизайн і технології для вебу
             </h2>
           </div>
         </div>
