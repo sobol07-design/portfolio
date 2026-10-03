@@ -1,4 +1,5 @@
-import { useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
+import { useMotionValue, useReducedMotion, useTransform } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { projects } from "../data";
 import { ProjectCard } from "./ProjectCard";
@@ -6,6 +7,36 @@ import { RevealSection } from "./RevealSection";
 
 export function Portfolio() {
   const carouselRef = useRef<HTMLDivElement>(null);
+  const carouselCenter = useMotionValue(0);
+  const reduceMotion = useReducedMotion();
+
+  useLayoutEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    const updateCenter = () => {
+      const firstCard = carousel.firstElementChild;
+      const cardWidth = firstCard?.getBoundingClientRect().width ?? 0;
+      const gap = Number.parseFloat(getComputedStyle(carousel).columnGap) || 0;
+      if (!cardWidth) return;
+
+      carouselCenter.set(
+        (carousel.scrollLeft + carousel.clientWidth / 2 - cardWidth / 2) /
+          (cardWidth + gap),
+      );
+    };
+
+    updateCenter();
+    carousel.addEventListener("scroll", updateCenter, { passive: true });
+    const resizeObserver = new ResizeObserver(updateCenter);
+    resizeObserver.observe(carousel);
+    if (carousel.firstElementChild) resizeObserver.observe(carousel.firstElementChild);
+
+    return () => {
+      carousel.removeEventListener("scroll", updateCenter);
+      resizeObserver.disconnect();
+    };
+  }, [carouselCenter]);
 
   function scrollProjects(direction: -1 | 1) {
     const carousel = carouselRef.current;
@@ -13,7 +44,10 @@ export function Portfolio() {
 
     const firstCard = carousel.firstElementChild;
     const cardWidth = firstCard?.getBoundingClientRect().width ?? 320;
-    carousel.scrollBy({ left: direction * (cardWidth + 20), behavior: "smooth" });
+    carousel.scrollBy({
+      left: direction * (cardWidth + 20),
+      behavior: reduceMotion ? "auto" : "smooth",
+    });
   }
 
   return (
@@ -60,16 +94,47 @@ export function Portfolio() {
           aria-label="Проєкти в портфоліо"
           className="portfolio-carousel -mx-1 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth px-1 pb-5 pt-2 motion-reduce:scroll-auto"
         >
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <div
               key={project.title}
               className="w-[88%] shrink-0 snap-start sm:w-[calc((100%-1.25rem)/2)] lg:w-[calc((100%-2.5rem)/3)]"
             >
-              <ProjectCard project={project} />
+              <StackedProjectCard
+                project={project}
+                index={index}
+                carouselCenter={carouselCenter}
+                reduceMotion={reduceMotion}
+              />
             </div>
           ))}
         </div>
       </section>
     </RevealSection>
   );
+}
+
+function StackedProjectCard({
+  project,
+  index,
+  carouselCenter,
+  reduceMotion,
+}: {
+  project: (typeof projects)[number];
+  index: number;
+  carouselCenter: ReturnType<typeof useMotionValue<number>>;
+  reduceMotion: boolean | null;
+}) {
+  const previewTransform = useTransform(carouselCenter, (center) => {
+    if (reduceMotion) return "none";
+
+    const distance = index - center;
+    const distanceFromCenter = Math.min(Math.abs(distance), 1);
+    const angle = Math.max(-1, Math.min(1, distance)) * -12;
+    const depth = distanceFromCenter * -72;
+    const scale = 1 - distanceFromCenter * 0.04;
+
+    return `perspective(800px) rotateY(${angle}deg) translateZ(${depth}px) scale(${scale})`;
+  });
+
+  return <ProjectCard project={project} previewTransform={previewTransform} />;
 }
