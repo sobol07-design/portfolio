@@ -130,11 +130,10 @@ function StackedProjectCard({
     const distance = index - center;
     const distanceFromCenter = Math.min(Math.abs(distance), 1);
     const angle = Math.max(-1, Math.min(1, distance)) * -12;
-    const tilt = Math.max(-1, Math.min(1, distance)) * -2.5;
     const depth = distanceFromCenter * -72;
     const scale = 1 - distanceFromCenter * 0.04;
 
-    return `perspective(800px) rotateY(${angle}deg) rotateZ(${tilt}deg) translateZ(${depth}px) scale(${scale})`;
+    return `perspective(800px) rotateY(${angle}deg) translateZ(${depth}px) scale(${scale})`;
   });
 
   return <ProjectCard project={project} previewTransform={previewTransform} />;
