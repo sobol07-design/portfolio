@@ -1,30 +1,19 @@
 import { ExternalLink } from "lucide-react";
-import type { MotionValue } from "framer-motion";
-import { motion } from "framer-motion";
 import type { projects } from "../data";
 
 type Project = (typeof projects)[number];
 
-export function ProjectCard({
-  project,
-  previewTransform,
-}: {
-  project: Project;
-  previewTransform: MotionValue<string>;
-}) {
+export function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/80 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-zinc-700 hover:shadow-glow">
-      <motion.div
-        style={{ transform: previewTransform }}
-        className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-zinc-800 via-zinc-900 to-indigo-950 [transform-style:preserve-3d]"
-      >
+      <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-zinc-800 via-zinc-900 to-indigo-950">
         <img
           src={project.image}
           alt={project.title}
-          className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 ${project.imageClassName}`}
+          className={`h-full w-full object-cover transition duration-500 group-hover:scale-105 ${project.imageClassName}`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/55 to-transparent" />
-      </motion.div>
+      </div>
       <div className="flex min-h-[25rem] flex-1 flex-col p-5">
         <p className="text-xs font-medium uppercase leading-5 tracking-[0.08em] text-indigo-300">{project.tech}</p>
         <h3 className="mt-3 text-xl font-semibold leading-7 text-zinc-100">
