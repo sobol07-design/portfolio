@@ -3,26 +3,29 @@ import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { Portfolio } from "./components/Portfolio";
 import { TechStack } from "./components/TechStack";
-
 function scrollToContacts() {
-  document.getElementById("contacts")?.scrollIntoView({ behavior: "smooth" });
+  document
+    .getElementById("contacts")
+    ?.scrollIntoView({
+      behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "instant"
+        : "smooth",
+    });
 }
-
 function App() {
   return (
-    <main className="min-h-screen overflow-hidden bg-zinc-950 text-zinc-100">
-      <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_top_left,rgba(99,102,241,0.16),transparent_32rem),radial-gradient(circle_at_bottom_right,rgba(16,185,129,0.12),transparent_30rem)]" />
-
+    <>
+      <a className="skip-link" href="#portfolio">
+        Перейти до робіт
+      </a>
       <Header onContactClick={scrollToContacts} />
-
-      <div id="top" className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <main id="top" className="site-content">
         <Hero onContactClick={scrollToContacts} />
-        <TechStack />
         <Portfolio />
+        <TechStack />
         <Contacts />
-      </div>
-    </main>
+      </main>
+    </>
   );
 }
-
 export default App;

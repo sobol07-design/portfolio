@@ -1,122 +1,46 @@
-import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
-import { fadeInUp } from "../animations";
-import portraitImage from "../assets/serhii-portrait.png";
-import { Button } from "./ui/button";
-
-const ctaGlow =
-  "border-fuchsia-300/30 bg-[linear-gradient(135deg,rgba(255,255,255,0.14),rgba(124,58,237,0.16),rgba(30,27,75,0.18))] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.24),0_0_28px_rgba(139,92,246,0.28),0_18px_45px_rgba(0,0,0,0.24)] backdrop-blur-2xl hover:border-fuchsia-200/55 hover:bg-[linear-gradient(135deg,rgba(255,255,255,0.18),rgba(168,85,247,0.24),rgba(79,70,229,0.2))] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.32),0_0_38px_rgba(168,85,247,0.42),0_0_70px_rgba(79,70,229,0.24)]";
-
+import { ArrowDown, ArrowUpRight } from "lucide-react";
+import portrait from "../assets/serhii-portrait.png";
 export function Hero({ onContactClick }: { onContactClick: () => void }) {
   return (
-    <section className="relative grid min-h-[calc(100vh-73px)] items-center gap-10 overflow-hidden rounded-[2rem] px-5 py-16 sm:px-6 md:grid-cols-[1.1fr_0.9fr] md:px-8 md:py-20">
-      <div className="pointer-events-none absolute inset-x-[-12rem] top-[-8rem] h-[42rem] bg-[linear-gradient(115deg,transparent_8%,rgba(16,185,129,0.2)_22%,transparent_38%,rgba(99,102,241,0.26)_56%,transparent_74%,rgba(245,158,11,0.16)_92%)] blur-3xl" />
-      <motion.div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:linear-gradient(to_bottom,black,transparent_82%)]"
-        animate={{ backgroundPosition: ["0rem 0rem", "4rem 4rem"] }}
-        transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
-      />
-      <motion.div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_10%,rgba(255,255,255,0.22),transparent_34%),radial-gradient(ellipse_at_18%_56%,rgba(16,185,129,0.18),transparent_32%),radial-gradient(ellipse_at_78%_42%,rgba(99,102,241,0.2),transparent_34%),linear-gradient(to_bottom,transparent,rgba(9,9,11,0.72)_78%)]"
-        animate={{ opacity: [0.72, 0.95, 0.72], scale: [1, 1.025, 1] }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <div className="pointer-events-none absolute bottom-10 left-1/2 h-px w-[76rem] -translate-x-1/2 bg-gradient-to-r from-transparent via-zinc-100/25 to-transparent shadow-[0_0_90px_24px_rgba(99,102,241,0.18)]" />
-      <motion.div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-[-18%] top-[18%] h-44 w-[82rem] -rotate-12 bg-gradient-to-r from-transparent via-emerald-300/16 to-transparent blur-2xl"
-        animate={{ x: [0, 120, 0], opacity: [0.55, 0.95, 0.55] }}
-        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        aria-hidden="true"
-        className="pointer-events-none absolute right-[-22%] top-[34%] h-52 w-[76rem] rotate-12 bg-gradient-to-r from-transparent via-indigo-300/18 to-transparent blur-2xl"
-        animate={{ x: [0, -110, 0], opacity: [0.45, 0.85, 0.45] }}
-        transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={fadeInUp}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-        className="relative z-10 max-w-3xl"
-      >
-        <motion.div
-          className="mb-5 inline-flex items-center gap-2 rounded-full border border-indigo-400/20 bg-indigo-400/10 px-4 py-2 text-sm text-indigo-200 backdrop-blur-xl"
-          animate={{ y: [0, -4, 0], opacity: [0.86, 1, 0.86] }}
-          transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <motion.span
-            animate={{ rotate: [0, 10, -8, 0], scale: [1, 1.08, 1] }}
-            transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <Sparkles className="h-4 w-4" />
-          </motion.span>
-          Преміальний вебдизайн для бізнесу
-        </motion.div>
-        <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-zinc-400">
-          UX/UI дизайнер <span className="text-emerald-300">і</span> веброзробник
-        </p>
-        <h1 className="max-w-4xl text-4xl font-semibold leading-[1.08] tracking-[-0.045em] text-white sm:text-6xl lg:text-7xl">
-          Створюю сайти для <span className="bg-gradient-to-r from-emerald-300 via-cyan-200 to-indigo-300 bg-clip-text text-transparent">розвитку</span> бізнесу
+    <section className="hero" aria-labelledby="hero-title">
+      <div className="hero-copy">
+        <p className="hero-role">UX/UI дизайнер і веброзробник</p>
+        <h1 id="hero-title">
+          Створюю сайти для <span>розвитку</span> бізнесу.
         </h1>
-        <p className="mt-6 max-w-2xl text-base leading-7 text-zinc-300 sm:text-lg sm:leading-8">
+        <p className="hero-description">
           Я Сергій Соболєв. Проєктую та розробляю адаптивні вебсайти й цифрові
-          продукти — з продуманою структурою, виразним дизайном і зрозумілим шляхом
-          до звернення.
+          продукти — з продуманою структурою, виразним дизайном і зрозумілим
+          шляхом до звернення.
         </p>
-        <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-          <Button
-            size="lg"
-            variant="glass"
-            onClick={onContactClick}
-            className={`motion-safe:animate-[pulse_4s_ease-in-out_infinite] ${ctaGlow}`}
-          >
-            Обговорити проєкт
-          </Button>
-          <a
-            href="#portfolio"
-            className={`inline-flex min-h-12 items-center justify-center rounded-full border px-6 py-3 text-base font-medium transition-all duration-300 motion-safe:animate-[pulse_4s_ease-in-out_infinite] ${ctaGlow}`}
-          >
-            Переглянути роботи
+        <div className="hero-actions">
+          <button className="primary-action" onClick={onContactClick}>
+            Обговорити проєкт <ArrowUpRight size={20} />
+          </button>
+          <a className="text-action" href="#portfolio">
+            Переглянути роботи <ArrowDown size={18} />
           </a>
         </div>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, scale: 0.96 }}
-        animate={{ opacity: 1, scale: 1, y: [0, -8, 0] }}
-        transition={{
-          opacity: { duration: 0.8, delay: 0.15, ease: "easeOut" },
-          scale: { duration: 0.8, delay: 0.15, ease: "easeOut" },
-          y: { duration: 7, repeat: Infinity, ease: "easeInOut" },
-        }}
-        className="relative z-10 mx-auto w-full max-w-[29rem]"
-      >
-        <div className="pointer-events-none absolute inset-8 rounded-[2rem] bg-violet-500/25 blur-[4.5rem]" />
-        <div className="relative overflow-hidden rounded-[2rem] border border-fuchsia-300/25 bg-zinc-950/55 p-1.5 shadow-[0_0_42px_rgba(139,92,246,0.22),0_30px_80px_rgba(0,0,0,0.38)] backdrop-blur-2xl">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[1.65rem] bg-zinc-950 sm:aspect-[3/4] md:aspect-[4/5]">
-            <img
-              src={portraitImage}
-              alt="Сергій Соболєв, UX/UI дизайнер та веброзробник"
-              className="h-full w-full object-cover object-[52%_38%] saturate-[0.92] contrast-[1.04]"
-            />
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(9,9,11,0.82),transparent_34%),linear-gradient(135deg,rgba(139,92,246,0.12),transparent_42%)]" />
-            <div className="absolute inset-x-4 bottom-4 flex items-center justify-between gap-3 rounded-2xl border border-white/15 bg-zinc-950/58 px-4 py-3 backdrop-blur-xl">
-              <div>
-                <p className="text-sm font-semibold text-white">Сергій Соболєв</p>
-                <p className="mt-0.5 text-xs text-zinc-300">UX/UI та веброзробка</p>
-              </div>
-              <span className="inline-flex items-center gap-2 whitespace-nowrap text-xs font-medium text-emerald-300">
-                <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.9)]" />
-                Відкритий до проєктів
-              </span>
-            </div>
-          </div>
+      </div>
+      <figure className="hero-portrait">
+        <div className="portrait-frame">
+          <img
+            src={portrait}
+            alt="Сергій Соболєв, UX/UI дизайнер та веброзробник"
+            fetchPriority="high"
+          />
         </div>
-      </motion.div>
+        <figcaption>
+          <div>
+            <strong>Сергій Соболєв</strong>
+            <span>UX/UI та веброзробка</span>
+          </div>
+          <p className="availability">
+            <i />
+            Відкритий до проєктів
+          </p>
+        </figcaption>
+      </figure>
     </section>
   );
 }
