@@ -23,7 +23,7 @@
 :root {
   font-family: Manrope, ui-sans-serif, system-ui, sans-serif;
   color: #f1f0f5;
-  background: #102654;
+  background: #141d3d;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -32,9 +32,9 @@
   --accent: #f3c477;
   --line: #2a3d5a;
   --page-background:
-    radial-gradient(ellipse at 70% 30%, #151b29 0%, transparent 55%),
-    radial-gradient(ellipse at 45% 85%, #122857 0%, transparent 65%),
-    #102654;
+    radial-gradient(ellipse at 70% 30%, #181c22 0%, transparent 55%),
+    radial-gradient(ellipse at 45% 85%, #142140 0%, transparent 65%),
+    #141d3d;
 }
 * {
   box-sizing: border-box;
@@ -83,7 +83,7 @@ footer {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: #0f1c37ed;
+  background: #141d3ded;
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(16px);
 }
@@ -774,7 +774,7 @@ footer {
 .blue-light {
   position: absolute;
   inset: -15%;
-  background: radial-gradient(ellipse at 72% 28%, #12285733, transparent 52%);
+  background: radial-gradient(ellipse at 72% 28%, #17223d33, transparent 52%);
   animation: light-drift 18s ease-in-out infinite alternate;
 }
 .graphite-light {
@@ -783,7 +783,7 @@ footer {
   top: 35%;
   width: 55%;
   height: 65%;
-  background: radial-gradient(ellipse, #151b2940, transparent 60%);
+  background: radial-gradient(ellipse, #181c2240, transparent 60%);
   animation: light-drift 22s ease-in-out infinite alternate-reverse;
 }
 @keyframes light-drift {
@@ -873,4 +873,3 @@ body {
     top: auto;
   }
 }
-
