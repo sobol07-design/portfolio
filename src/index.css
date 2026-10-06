@@ -23,7 +23,7 @@
 :root {
   font-family: Manrope, ui-sans-serif, system-ui, sans-serif;
   color: #f1f0f5;
-  background: #0b1425;
+  background: #102654;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -31,6 +31,10 @@
   --muted: #b6c3d7;
   --accent: #f3c477;
   --line: #2a3d5a;
+  --page-background:
+    radial-gradient(ellipse at 70% 30%, #151b29 0%, transparent 55%),
+    radial-gradient(ellipse at 45% 85%, #122857 0%, transparent 65%),
+    #102654;
 }
 * {
   box-sizing: border-box;
@@ -79,7 +83,7 @@ footer {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: #0b1425ed;
+  background: #0f1c37ed;
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(16px);
 }
@@ -765,26 +769,21 @@ footer {
   overflow: hidden;
   pointer-events: none;
   z-index: -1;
-  background: radial-gradient(
-    ellipse at 78% 35%,
-    #153469 0%,
-    #102344 38%,
-    #0b1425 78%
-  );
+  background: var(--page-background);
 }
 .blue-light {
   position: absolute;
   inset: -15%;
-  background: radial-gradient(ellipse at 72% 28%, #1b448b99, transparent 52%);
+  background: radial-gradient(ellipse at 72% 28%, #12285733, transparent 52%);
   animation: light-drift 18s ease-in-out infinite alternate;
 }
-.amber-light {
+.graphite-light {
   position: absolute;
   left: -12%;
   top: 35%;
   width: 55%;
   height: 65%;
-  background: radial-gradient(ellipse, #d982281c, transparent 60%);
+  background: radial-gradient(ellipse, #151b2940, transparent 60%);
   animation: light-drift 22s ease-in-out infinite alternate-reverse;
 }
 @keyframes light-drift {
@@ -806,7 +805,7 @@ body {
 .content-stage {
   position: relative;
   z-index: 2;
-  background: linear-gradient(160deg, #12294c 0%, #0d1b32 36%, #0b172b 100%);
+  background: var(--page-background);
   border-radius: 28px 28px 0 0;
   margin: 0 -32px;
   padding: 0 32px;
@@ -859,12 +858,7 @@ body {
     border-radius: 20px 20px 0 0;
   }
   .ambient-light {
-    background: radial-gradient(
-      ellipse at 90% 25%,
-      #17366c 0%,
-      #102344 35%,
-      #0b1425 80%
-    );
+    background: var(--page-background);
   }
 }
 @media (hover: none) {
@@ -879,3 +873,4 @@ body {
     top: auto;
   }
 }
+

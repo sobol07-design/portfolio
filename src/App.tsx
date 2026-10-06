@@ -19,7 +19,7 @@ function App() {
       </a>
       <div className="ambient-light" aria-hidden="true">
         <div className="blue-light" />
-        <div className="amber-light" />
+        <div className="graphite-light" />
       </div>
       <Header onContactClick={scrollToContacts} />
       <main id="top" className="site-content">
@@ -42,3 +42,4 @@ function App() {
   );
 }
 export default App;
+
