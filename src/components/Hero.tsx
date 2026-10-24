@@ -106,7 +106,7 @@ export function Hero({ onContactClick }: { onContactClick: () => void }) {
         onPointerCancel={resetTilt}
       >
         <motion.figure
-          className="portrait-tilt"
+          className="portrait-tilt portrait-tilt--layered"
           style={reduced ? undefined : { transform: tiltTransform }}
         >
           <div className="portrait-frame">

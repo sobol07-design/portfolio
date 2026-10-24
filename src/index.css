@@ -1115,3 +1115,18 @@ body {
     text-shadow: 0 8px 18px #03081699;
   }
 }
+
+/* Expressive layered variant: only the photograph gets its own extra rotation. */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .portrait-tilt--layered .portrait-frame,
+  .portrait-tilt--layered figcaption {
+    transition: transform 450ms cubic-bezier(.23,1,.32,1), box-shadow 450ms ease;
+  }
+  .hero-portrait:hover .portrait-tilt--layered .portrait-frame {
+    transform: translateZ(72px) rotateX(8deg) rotateZ(-3deg);
+    box-shadow: 0 32px 70px -24px #020814cc;
+  }
+  .hero-portrait:hover .portrait-tilt--layered figcaption {
+    transform: translateZ(86px) translateY(8px);
+  }
+}
