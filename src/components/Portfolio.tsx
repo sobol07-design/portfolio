@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { projects } from "../data";
 import { ProjectCard } from "./ProjectCard";
+import { ExpandedProjects } from "./ExpandedProjects";
 export function Portfolio() {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({
@@ -59,66 +60,69 @@ export function Portfolio() {
           Продуманий шлях до звернення.
         </p>
       </div>
-      <div className="carousel-toolbar">
-        <span>
-          Портфоліо{" "}
-          <span className="project-count">
-            / {String(projects.length).padStart(2, "0")}
+      <ExpandedProjects />
+      <div className="mobile-projects">
+        <div className="carousel-toolbar">
+          <span>
+            Портфоліо{" "}
+            <span className="project-count">
+              / {String(projects.length).padStart(2, "0")}
+            </span>
           </span>
-        </span>
-        <div className="carousel-controls">
-          <button
-            disabled={position.index === 0}
-            onClick={() => scrollProjects(-1)}
-            aria-label="Попередні проєкти"
-            aria-controls="portfolio-carousel"
-          >
-            <ArrowLeft size={20} />
-          </button>
-          <button
-            disabled={position.end}
-            onClick={() => scrollProjects(1)}
-            aria-label="Наступні проєкти"
-            aria-controls="portfolio-carousel"
-          >
-            <ArrowRight size={20} />
-          </button>
-        </div>
-      </div>
-      <div
-        ref={carouselRef}
-        id="portfolio-carousel"
-        className="portfolio-carousel"
-        role="region"
-        aria-label="Проєкти в портфоліо"
-        tabIndex={0}
-        onKeyDown={(event) => {
-          if (event.target !== event.currentTarget) return;
-          if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
-            event.preventDefault();
-            scrollProjects(event.key === "ArrowRight" ? 1 : -1);
-          }
-        }}
-      >
-        {projects.map((project) => (
-          <div className="project-slide" key={project.title}>
-            <ProjectCard project={project} />
+          <div className="carousel-controls">
+            <button
+              disabled={position.index === 0}
+              onClick={() => scrollProjects(-1)}
+              aria-label="Попередні проєкти"
+              aria-controls="portfolio-carousel"
+            >
+              <ArrowLeft size={20} />
+            </button>
+            <button
+              disabled={position.end}
+              onClick={() => scrollProjects(1)}
+              aria-label="Наступні проєкти"
+              aria-controls="portfolio-carousel"
+            >
+              <ArrowRight size={20} />
+            </button>
           </div>
-        ))}
-      </div>
-      <div className="carousel-footer">
-        <span>Гортайте, щоб переглянути всі роботи</span>
-        <div className="carousel-dots" aria-hidden="true">
-          {projects.map((project, i) => (
-            <i
-              key={project.title}
-              className={
-                i >= position.index && i < position.index + position.visible
-                  ? "active"
-                  : ""
-              }
-            />
+        </div>
+        <div
+          ref={carouselRef}
+          id="portfolio-carousel"
+          className="portfolio-carousel"
+          role="region"
+          aria-label="Проєкти в портфоліо"
+          tabIndex={0}
+          onKeyDown={(event) => {
+            if (event.target !== event.currentTarget) return;
+            if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
+              event.preventDefault();
+              scrollProjects(event.key === "ArrowRight" ? 1 : -1);
+            }
+          }}
+        >
+          {projects.map((project) => (
+            <div className="project-slide" key={project.title}>
+              <ProjectCard project={project} />
+            </div>
           ))}
+        </div>
+        <div className="carousel-footer">
+          <span>Гортайте, щоб переглянути всі роботи</span>
+          <div className="carousel-dots" aria-hidden="true">
+            {projects.map((project, i) => (
+              <i
+                key={project.title}
+                className={
+                  i >= position.index && i < position.index + position.visible
+                    ? "active"
+                    : ""
+                }
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
