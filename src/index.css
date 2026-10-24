@@ -873,3 +873,65 @@ body {
     top: auto;
   }
 }
+
+/* A travelling highlight around the card, inspired by the supplied video. */
+@property --card-beam-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+.project-card {
+  position: relative;
+  isolation: isolate;
+}
+.project-card::before,
+.project-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: conic-gradient(
+    from var(--card-beam-angle),
+    transparent 0deg 245deg,
+    #79b9ed18 280deg,
+    #b6e7ff99 325deg,
+    #effcff 349deg,
+    transparent 360deg
+  );
+  padding: 1.5px;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  transition: opacity 200ms ease;
+  animation: card-border-orbit 3s linear infinite paused;
+}
+.project-card::after {
+  padding: 7px;
+  filter: blur(6px);
+}
+@keyframes card-border-orbit {
+  to { --card-beam-angle: 360deg; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover::before,
+  .project-card:hover::after {
+    opacity: 1;
+    animation-play-state: running;
+  }
+}
+.project-card:focus-within::before,
+.project-card:focus-within::after {
+  opacity: 1;
+  animation-play-state: running;
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-card::before,
+  .project-card::after {
+    animation: none;
+    --card-beam-angle: 45deg;
+  }
+}
