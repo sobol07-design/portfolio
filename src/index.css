@@ -1094,3 +1094,24 @@ body {
     transition: none;
   }
 }
+
+/* Separate tilt and scroll wrappers keep the two interactions independent. */
+.hero-portrait {
+  perspective: 1400px;
+}
+.portrait-tilt {
+  margin: 0;
+  transform-style: preserve-3d;
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .portrait-tilt .portrait-frame {
+    transform: translateZ(24px);
+  }
+  .portrait-tilt figcaption {
+    transform: translateZ(52px);
+  }
+  .portrait-tilt figcaption > div,
+  .portrait-tilt .availability {
+    text-shadow: 0 8px 18px #03081699;
+  }
+}

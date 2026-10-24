@@ -7,11 +7,33 @@ import {
   useScroll,
   useSpring,
   useTransform,
+  useMotionTemplate,
 } from "framer-motion";
 export function Hero({ onContactClick }: { onContactClick: () => void }) {
   const section = useRef<HTMLElement>(null);
   const [height, setHeight] = useState(800);
   const reduced = useReducedMotion();
+  const tiltX = useSpring(0, { stiffness: 100, damping: 30 });
+  const tiltY = useSpring(0, { stiffness: 100, damping: 30 });
+  const tiltTransform = useMotionTemplate`rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+  const resetTilt = () => {
+    tiltX.set(0);
+    tiltY.set(0);
+  };
+  useEffect(() => {
+    const pointer = matchMedia("(hover: hover) and (pointer: fine)");
+    const reset = () => {
+      tiltX.set(0);
+      tiltY.set(0);
+    };
+    if (reduced || !pointer.matches) reset();
+    pointer.addEventListener("change", reset);
+    window.addEventListener("blur", reset);
+    return () => {
+      pointer.removeEventListener("change", reset);
+      window.removeEventListener("blur", reset);
+    };
+  }, [reduced, tiltX, tiltY]);
   useEffect(() => {
     if (!section.current) return;
     const observer = new ResizeObserver(([entry]) =>
@@ -58,28 +80,54 @@ export function Hero({ onContactClick }: { onContactClick: () => void }) {
           </a>
         </div>
       </motion.div>
-      <motion.figure
+      <motion.div
         className="hero-portrait"
         style={reduced ? undefined : { transform: portraitTransform, opacity }}
+        onPointerMove={(event) => {
+          if (
+            reduced ||
+            event.pointerType !== "mouse" ||
+            !matchMedia("(hover: hover) and (pointer: fine)").matches
+          )
+            return;
+          const rect = event.currentTarget.getBoundingClientRect();
+          const x = Math.max(
+            -0.5,
+            Math.min(0.5, (event.clientX - rect.left) / rect.width - 0.5),
+          );
+          const y = Math.max(
+            -0.5,
+            Math.min(0.5, (event.clientY - rect.top) / rect.height - 0.5),
+          );
+          tiltX.set(-y * 12);
+          tiltY.set(x * 14);
+        }}
+        onPointerLeave={resetTilt}
+        onPointerCancel={resetTilt}
       >
-        <div className="portrait-frame">
-          <img
-            src={portrait}
-            alt="Сергій Соболєв, UX/UI дизайнер та веброзробник"
-            fetchPriority="high"
-          />
-        </div>
-        <figcaption>
-          <div>
-            <strong>Сергій Соболєв</strong>
-            <span>UX/UI та веброзробка</span>
+        <motion.figure
+          className="portrait-tilt"
+          style={reduced ? undefined : { transform: tiltTransform }}
+        >
+          <div className="portrait-frame">
+            <img
+              src={portrait}
+              alt="Сергій Соболєв, UX/UI дизайнер та веброзробник"
+              fetchPriority="high"
+            />
           </div>
-          <p className="availability">
-            <i />
-            Відкритий до проєктів
-          </p>
-        </figcaption>
-      </motion.figure>
+          <figcaption>
+            <div>
+              <strong>Сергій Соболєв</strong>
+              <span>UX/UI та веброзробка</span>
+            </div>
+            <p className="availability">
+              <i />
+              Відкритий до проєктів
+            </p>
+          </figcaption>
+        </motion.figure>
+      </motion.div>
     </section>
   );
 }
