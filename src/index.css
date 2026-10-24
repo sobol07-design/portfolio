@@ -873,65 +873,74 @@ body {
     top: auto;
   }
 }
-
-/* A travelling highlight around the card, inspired by the supplied video. */
-@property --card-beam-angle {
+/* The travelling beam sits outside the hero buttons, never over their fill. */
+@property --button-beam-angle {
   syntax: '<angle>';
   initial-value: 0deg;
   inherits: false;
 }
-.project-card {
+.hero-actions > .primary-action,
+.hero-actions > .text-action {
   position: relative;
   isolation: isolate;
+  overflow: visible;
+  border-radius: 999px;
 }
-.project-card::before,
-.project-card::after {
+.hero-actions > .text-action {
+  padding: 16px 22px;
+  border: 1px solid var(--line);
+}
+.hero-actions > .primary-action::before,
+.hero-actions > .primary-action::after,
+.hero-actions > .text-action::before,
+.hero-actions > .text-action::after {
   content: '';
   position: absolute;
-  inset: 0;
-  z-index: 3;
+  inset: -4px;
   border-radius: inherit;
   pointer-events: none;
   opacity: 0;
+  padding: 1.5px;
   background: conic-gradient(
-    from var(--card-beam-angle),
-    transparent 0deg 245deg,
-    #79b9ed18 280deg,
-    #b6e7ff99 325deg,
-    #effcff 349deg,
+    from var(--button-beam-angle),
+    transparent 0deg 255deg,
+    #b6e7ff30 295deg,
+    #b6e7ffb3 330deg,
+    #f2fcff 350deg,
     transparent 360deg
   );
-  padding: 1.5px;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   transition: opacity 200ms ease;
-  animation: card-border-orbit 3s linear infinite paused;
+  animation: button-border-orbit 2.8s linear infinite paused;
 }
-.project-card::after {
-  padding: 7px;
-  filter: blur(6px);
+.hero-actions > .primary-action::after,
+.hero-actions > .text-action::after {
+  filter: blur(4px);
 }
-@keyframes card-border-orbit {
-  to { --card-beam-angle: 360deg; }
+@keyframes button-border-orbit {
+  to { --button-beam-angle: 360deg; }
 }
 @media (hover: hover) and (pointer: fine) {
-  .project-card:hover::before,
-  .project-card:hover::after {
+  .hero-actions > :hover::before,
+  .hero-actions > :hover::after {
     opacity: 1;
     animation-play-state: running;
   }
 }
-.project-card:focus-within::before,
-.project-card:focus-within::after {
+.hero-actions > :focus-visible::before,
+.hero-actions > :focus-visible::after {
   opacity: 1;
   animation-play-state: running;
 }
 @media (prefers-reduced-motion: reduce) {
-  .project-card::before,
-  .project-card::after {
+  .hero-actions > .primary-action::before,
+  .hero-actions > .primary-action::after,
+  .hero-actions > .text-action::before,
+  .hero-actions > .text-action::after {
     animation: none;
-    --card-beam-angle: 45deg;
+    --button-beam-angle: 45deg;
   }
 }
