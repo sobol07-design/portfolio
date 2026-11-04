@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { MoveUpRight } from "lucide-react";
 import { projects } from "../data";
 
 export function ExpandedProjects() {
@@ -19,7 +19,7 @@ export function ExpandedProjects() {
             rel="noreferrer"
             aria-label={`Відкрити сайт: ${project.title}`}
           >
-            Відкрити сайт <ArrowUpRight size={20} aria-hidden="true" />
+            Відкрити сайт <MoveUpRight size={22} strokeWidth={1.5} aria-hidden="true" />
           </a>
         </div>
       </div>
@@ -91,7 +91,7 @@ export function ExpandedProjects() {
             target="_blank"
             rel="noreferrer"
           >
-            Відкрити сайт <ArrowUpRight size={20} />
+            Відкрити сайт <MoveUpRight size={22} strokeWidth={1.5} aria-hidden="true" />
           </a>
         </div>
         <div className="expanded-copy">

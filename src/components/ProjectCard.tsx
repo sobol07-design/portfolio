@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, MoveUpRight } from "lucide-react";
 import type { projects } from "../data";
 type Project = (typeof projects)[number];
 export function ProjectCard({ project }: { project: Project }) {
@@ -36,7 +36,7 @@ export function ProjectCard({ project }: { project: Project }) {
           target="_blank"
           rel="noreferrer"
         >
-          Відкрити сайт <ArrowUpRight size={18} />
+          Відкрити сайт <MoveUpRight size={22} strokeWidth={1.5} aria-hidden="true" />
         </a>
       </div>
     </article>
