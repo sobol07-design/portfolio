@@ -10,7 +10,18 @@ export function ExpandedProjects() {
     <div className="expanded-projects">
       <div className="expanded-toolbar">
         <span>Портфоліо / {String(projects.length).padStart(2, "0")}</span>
-        <span>Наведіть на картку, щоб розглянути проєкт</span>
+        <div className="expanded-toolbar-actions">
+          <span>Оберіть картку й відкрийте сайт</span>
+          <a
+            className="project-open-button"
+            href={project.link}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`Відкрити сайт: ${project.title}`}
+          >
+            Відкрити сайт <ArrowUpRight size={20} aria-hidden="true" />
+          </a>
+        </div>
       </div>
       <div className="expanded-rail" role="group" aria-label="Виберіть проєкт">
         {projects.map((item, index) => (
