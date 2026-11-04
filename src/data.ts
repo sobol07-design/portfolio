@@ -13,7 +13,7 @@ export const projects = [
     tech: "Вебзастосунок • Інтерактивне меню • Адаптивний дизайн",
     description:
       "Розроблено адаптивну головну сторінку, меню та візуальну систему з плавними анімаціями.",
-    link: "https://ok-sobol07-designs-projects.vercel.app",
+    link: "https://okrasa-portfolio.netlify.app",
     image: projectOneImage,
     imageClassName: "opacity-95 brightness-125 saturate-125 contrast-110",
   },
