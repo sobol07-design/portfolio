@@ -36,7 +36,7 @@ export const projects = [
     tech: "Сайт агентства • Каталог нерухомості • Фільтри",
     description:
       "Каталог продажу й оренди, сторінки послуг, відгуків і форми звернення об'єднано в одному сайті.",
-    link: "https://nataliyabila.com.ua",
+    link: "https://nataliya-bila-portfolio.netlify.app",
     image: projectThreeImage,
     imageClassName: "opacity-90 saturate-110",
   },
