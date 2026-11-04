@@ -1177,3 +1177,18 @@ body {
   .expanded-description .expanded-visit,
   .project-body .project-link { transition: none; }
 }
+
+.project-open-button,
+.expanded-description .expanded-visit,
+.project-body .project-link {
+  gap: 18px;
+}
+.project-open-label {
+  flex: 1;
+  text-align: center;
+}
+.project-open-button > svg,
+.expanded-description .expanded-visit > svg,
+.project-body .project-link > svg {
+  flex-shrink: 0;
+}

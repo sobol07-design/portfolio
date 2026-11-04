@@ -19,7 +19,7 @@ export function ExpandedProjects() {
             rel="noreferrer"
             aria-label={`Відкрити сайт: ${project.title}`}
           >
-            Відкрити сайт <MoveUpRight size={22} strokeWidth={1.5} aria-hidden="true" />
+            <span className="project-open-label">Відкрити сайт</span> <MoveUpRight size={22} strokeWidth={1.5} aria-hidden="true" />
           </a>
         </div>
       </div>
@@ -91,7 +91,7 @@ export function ExpandedProjects() {
             target="_blank"
             rel="noreferrer"
           >
-            Відкрити сайт <MoveUpRight size={22} strokeWidth={1.5} aria-hidden="true" />
+            <span className="project-open-label">Відкрити сайт</span> <MoveUpRight size={22} strokeWidth={1.5} aria-hidden="true" />
           </a>
         </div>
         <div className="expanded-copy">
