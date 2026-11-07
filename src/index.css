@@ -880,6 +880,8 @@ body {
 }
 .hero-actions > .primary-action,
 .hero-actions > .text-action {
+  box-sizing: border-box;
+  height: 55px;
   position: relative;
   isolation: isolate;
   overflow: visible;
@@ -1191,4 +1193,36 @@ body {
 .expanded-description .expanded-visit > svg,
 .project-body .project-link > svg {
   flex-shrink: 0;
+}
+
+/* One rotating highlight, adapted to the portfolio's navy and gold palette. */
+:is(.expanded-description .expanded-visit, .project-body .project-link) {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #111a35;
+}
+:is(.expanded-description .expanded-visit, .project-body .project-link)::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: -180%;
+  background: conic-gradient(from 0deg, transparent 0 14%, #b57d27 18%, #fff0be 19%, #e8b95d 20%, transparent 25% 100%);
+  animation: portfolio-shiny-orbit 4s linear infinite;
+  pointer-events: none;
+}
+:is(.expanded-description .expanded-visit, .project-body .project-link)::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 1px;
+  border-radius: inherit;
+  background: #111a35;
+  pointer-events: none;
+}
+:is(.expanded-description .expanded-visit, .project-body .project-link):hover { background: #111a35; }
+:is(.expanded-description .expanded-visit, .project-body .project-link):focus-visible { outline: 2px solid #ffdda4; outline-offset: 4px; }
+@keyframes portfolio-shiny-orbit { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  :is(.expanded-description .expanded-visit, .project-body .project-link)::before { animation: none; }
 }
