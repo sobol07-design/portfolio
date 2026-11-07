@@ -1,6 +1,6 @@
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import portrait from "../assets/serhii-portrait.png";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import {
   motion,
   useReducedMotion,
@@ -9,6 +9,13 @@ import {
   useTransform,
   useMotionTemplate,
 } from "framer-motion";
+const titleWords = ["Створюю", "сайти", "для", "розвитку", "бізнесу."];
+let letterOffset = 0;
+const animatedTitle = titleWords.map((word) => {
+  const start = letterOffset;
+  letterOffset += word.length;
+  return { word, start };
+});
 export function Hero({ onContactClick }: { onContactClick: () => void }) {
   const section = useRef<HTMLElement>(null);
   const [height, setHeight] = useState(800);
@@ -63,8 +70,14 @@ export function Hero({ onContactClick }: { onContactClick: () => void }) {
         style={reduced ? undefined : { transform: copyTransform, opacity }}
       >
         <p className="hero-role">UX/UI дизайнер і веброзробник</p>
-        <h1 id="hero-title">
-          Створюю сайти для <span>розвитку</span> бізнесу.
+        <h1 id="hero-title" aria-label="Створюю сайти для розвитку бізнесу.">
+          {animatedTitle.map(({ word, start }, index) => (
+            <span className={`hero-title-word${word === "розвитку" ? " hero-title-word--accent" : ""}`} aria-hidden="true" key={word}>
+              {Array.from(word, (letter, i) => (
+                <span className="hero-title-letter" style={{ "--letter-index": start + i } as CSSProperties} key={i}>{letter}</span>
+              ))}{index < animatedTitle.length - 1 ? "\u00a0" : null}
+            </span>
+          ))}
         </h1>
         <p className="hero-description">
           Я Сергій Соболєв. Проєктую та розробляю адаптивні вебсайти й цифрові

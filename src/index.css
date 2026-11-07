@@ -1226,3 +1226,16 @@ body {
 @media (prefers-reduced-motion: reduce) {
   :is(.expanded-description .expanded-visit, .project-body .project-link)::before { animation: none; }
 }
+
+/* The first screen assembles before the headline settles into place. */
+.hero h1 .hero-title-word { display: inline-block; color: inherit; white-space: nowrap; }
+.hero h1 .hero-title-word--accent { color: var(--accent); }
+.hero h1 .hero-title-letter { display: inline-block; color: inherit; }
+@media (prefers-reduced-motion: no-preference) {
+  .site-header { animation: hero-assemble 1200ms cubic-bezier(.22, 1, .36, 1) both; }
+  .hero-portrait .portrait-tilt { animation: hero-assemble 1400ms cubic-bezier(.22, 1, .36, 1) 160ms both; }
+  .hero-role, .hero-description, .hero-actions { animation: hero-assemble 1200ms cubic-bezier(.22, 1, .36, 1) 320ms both; }
+  .hero h1 .hero-title-letter { animation: hero-letter-arrive 1120ms cubic-bezier(.22, 1, .36, 1) both; animation-delay: calc(600ms + var(--letter-index) * 32ms); }
+}
+@keyframes hero-assemble { from { opacity: 0; translate: 0 12px; } to { opacity: 1; translate: 0 0; } }
+@keyframes hero-letter-arrive { from { opacity: 0; transform: translate3d(0, 14px, 0) rotate(-3deg); } to { opacity: 1; transform: translate3d(0, 0, 0) rotate(0); } }
