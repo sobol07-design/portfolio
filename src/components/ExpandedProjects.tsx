@@ -66,16 +66,7 @@ export function ExpandedProjects() {
               {String(index + 1).padStart(2, "0")}
             </span>
             <span className="expanded-label" aria-hidden="true">
-              {
-                [
-                  "Кав’ярня",
-                  "RGCC",
-                  "Наталія Біла",
-                  "Адвокат",
-                  "Нерухомість",
-                  "Кондитерська",
-                ][index]
-              }
+              {item.shortTitle}
             </span>
           </button>
         ))}
